@@ -17,7 +17,7 @@ namespace LearnTwilio
             var message = MessageResource.Create(
                 to: new PhoneNumber(Secrets.TO_NUMBER),
                 from: new PhoneNumber(Secrets.TWILIO_PHONENUMBER),
-                body: "Hi there! Thanks for joining Hack It Out <3"
+                body: "Hi there! Thanks for joining us <3"
             );
 
             Console.WriteLine(message.Sid);
@@ -25,7 +25,7 @@ namespace LearnTwilio
             var call = CallResource.Create(
                 to: new PhoneNumber(Secrets.TO_NUMBER),
                 from: new PhoneNumber(Secrets.TWILIO_PHONENUMBER),
-                url: new Uri("https://handler.twilio.com/twiml/EH629ee4f090a841cc524ff347e2c4aa64")
+                twiml: new Twiml("<Response><Say>Hi there! Thanks for joining us! You're awesome!</Say></Response>")
             );
 
             Console.WriteLine(call.Sid);
